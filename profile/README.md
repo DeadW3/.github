@@ -64,12 +64,13 @@ The DeadW3 protocol consists of five interacting layers:
 graph TD
 A[Uploader] --> B[Arweave Upload via Bundlr]
 B --> C[AI Verifier]
-C --> D[Show Registry (Base)]
+C --> D["Show Registry (Base)"]
 D --> E[Reward Distributor]
 E --> F[Treasury / DAO]
 F --> G[Frontend / Archive Explorer]
 G --> A
 ```
+
 
 ---
 
