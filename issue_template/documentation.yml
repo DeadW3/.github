@@ -1,0 +1,238 @@
+name: Documentation Issue
+description: Report missing, unclear, or incorrect documentation
+title: "[Docs]: "
+labels: ["documentation", "triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve our documentation! Clear docs make the project accessible to everyone.
+
+  - type: dropdown
+    id: repository
+    attributes:
+      label: Repository
+      description: Which repository's documentation needs improvement?
+      options:
+        - deadw3-contracts
+        - deadw3-protocol
+        - deadw3-verifier
+        - deadw3-explorer
+        - deadw3-docs (main documentation)
+        - .github (contributing guides)
+        - Multiple repositories
+    validations:
+      required: true
+
+  - type: dropdown
+    id: doc-type
+    attributes:
+      label: Documentation Type
+      description: What kind of documentation needs attention?
+      options:
+        - README file
+        - API documentation
+        - Code comments
+        - Tutorial/Guide
+        - Architecture Decision Record (ADR)
+        - Deployment guide
+        - Contributing guide
+        - Smart contract documentation
+        - Configuration reference
+        - Troubleshooting guide
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Issue Type
+      description: What's wrong with the documentation?
+      options:
+        - Missing - Documentation doesn't exist
+        - Unclear - Explanation is confusing
+        - Incorrect - Information is wrong
+        - Outdated - Information is no longer accurate
+        - Incomplete - Missing important details
+        - Example needed - Needs code example
+        - Typo/Grammar - Writing quality issue
+        - Organization - Structure needs improvement
+    validations:
+      required: true
+
+  - type: textarea
+    id: location
+    attributes:
+      label: Documentation Location
+      description: Where is the documentation issue located?
+      placeholder: |
+        Example: 
+        - File: deadw3-protocol/README.md, Section: "Environment Variables"
+        - URL: https://github.com/DeadW3/deadw3-docs/blob/main/api/reference.md
+        - Code: src/contracts/ShowRegistry.sol, lines 45-60
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's the Problem?
+      description: Describe what's missing, unclear, or incorrect in detail.
+      placeholder: |
+        Example: The README mentions setting up environment variables but doesn't list which variables are required or what values they should have. I spent 30 minutes trying to figure out the correct DATABASE_URL format.
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: Current Documentation
+      description: Quote or describe the current documentation (if it exists).
+      placeholder: |
+        Example:
+        Current text says: "Configure your environment variables before starting."
+        
+        But it doesn't explain:
+        - Which variables are required vs optional
+        - What format each variable should use
+        - Where to find values like API keys
+      render: markdown
+    validations:
+      required: false
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested Improvement
+      description: How should the documentation be improved?
+      placeholder: |
+        Example:
+        Add a table with:
+        - Variable name
+        - Required/Optional
+        - Description
+        - Example value
+        - Where to obtain it
+        
+        Like:
+        | Variable | Required | Description | Example |
+        |----------|----------|-------------|---------|
+        | DATABASE_URL | Yes | PostgreSQL connection string | postgresql://user:pass@localhost:5432/deadw3 |
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: example
+    attributes:
+      label: Example Documentation
+      description: If helpful, provide example documentation text or code.
+      placeholder: |
+        Write the documentation as you think it should appear:
+        
+        ## Environment Variables
+        
+        Create a `.env` file with the following variables:
+        
+        ```bash
+        # Database (Required)
+        DATABASE_URL=postgresql://user:password@localhost:5432/deadw3
+        
+        # Arweave (Optional - defaults to testnet)
+        ARWEAVE_URL=https://arweave.net
+        ```
+      render: markdown
+    validations:
+      required: false
+
+  - type: dropdown
+    id: audience
+    attributes:
+      label: Target Audience
+      description: Who would benefit most from this documentation improvement?
+      options:
+        - New contributors
+        - Experienced developers
+        - Smart contract developers
+        - Users/End-users
+        - DevOps/Deployers
+        - Everyone
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this documentation improvement?
+      options:
+        - Critical - Blocking users from getting started
+        - High - Causing significant confusion
+        - Medium - Would reduce support questions
+        - Low - Nice to have clarification
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: User Impact
+      description: How does this documentation issue affect users?
+      placeholder: |
+        Example: Without this documentation, new developers can't set up their development environment and get stuck on the first step. I had to ask in Discord for help.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      description: Are you interested in improving this documentation?
+      options:
+        - label: I would like to write this documentation myself
+          required: false
+        - label: I can provide more examples or use cases
+          required: false
+        - label: I can review and test proposed documentation
+          required: false
+
+  - type: textarea
+    id: resources
+    attributes:
+      label: Related Resources
+      description: Links to related documentation, discussions, or examples from other projects.
+      placeholder: |
+        - Similar documentation that works well: [Link]
+        - Related issue or discussion: #123
+        - External reference: https://docs.example.com/guide
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other information that would help improve the documentation.
+      placeholder: |
+        - Screenshots of confusion
+        - Common questions from Discord/support
+        - Error messages users encounter
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      description: Please confirm the following before submitting.
+      options:
+        - label: I have searched existing issues to ensure this hasn't been reported
+          required: true
+        - label: I have identified the specific location of the documentation issue
+          required: true
+        - label: I have provided a clear suggestion for improvement
+          required: true
+        - label: I have considered the target audience for this documentation
+          required: true

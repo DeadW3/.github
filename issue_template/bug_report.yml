@@ -1,0 +1,168 @@
+name: Bug Report
+description: Report a bug or unexpected behavior
+title: "[Bug]: "
+labels: ["bug", "triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please fill out the sections below to help us investigate and fix the issue.
+        
+        **Security Note:** If you've found a security vulnerability, please DO NOT report it here. Instead, follow our [Security Policy](https://github.com/DeadW3/.github/blob/main/SECURITY.md).
+
+  - type: dropdown
+    id: repository
+    attributes:
+      label: Repository
+      description: Which repository is affected?
+      options:
+        - deadw3-contracts
+        - deadw3-protocol
+        - deadw3-verifier
+        - deadw3-explorer
+        - deadw3-docs
+        - Other/Multiple
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: "Example: The show upload fails with error 'Invalid transaction ID' even when the ID is valid."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+      placeholder: "Example: Show should be submitted successfully and appear in my submissions list."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened?
+      placeholder: "Example: Got error message and submission was rejected."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Step-by-step instructions to reproduce the bug.
+      placeholder: |
+        1. Go to upload page
+        2. Enter transaction ID 'abc123...'
+        3. Fill in date and venue
+        4. Click 'Submit Show'
+        5. See error message
+      value: |
+        1. 
+        2. 
+        3. 
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Information about your environment.
+      placeholder: |
+        - OS: Ubuntu 22.04
+        - Browser: Chrome 119
+        - Node version: 20.10.0
+        - Network: Base Sepolia
+      value: |
+        - OS: 
+        - Browser: 
+        - Node version: 
+        - Network: 
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error Messages / Logs
+      description: Include any error messages, stack traces, or relevant logs.
+      placeholder: |
+        Paste error messages here. Use code blocks for formatting:
+        ```
+        Error: Invalid transaction ID
+        at validateTxId (src/validation.ts:45)
+        ...
+        ```
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain the problem.
+      placeholder: Drag and drop images here or paste URLs.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: How severe is this bug?
+      options:
+        - Critical - Application is unusable
+        - High - Major functionality broken
+        - Medium - Some functionality impaired
+        - Low - Minor inconvenience
+    validations:
+      required: true
+
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: Frequency
+      description: How often does this bug occur?
+      options:
+        - Always - 100% reproducible
+        - Often - Happens most times
+        - Sometimes - Happens occasionally
+        - Rare - Happened once or twice
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other context, workarounds, or information about the problem.
+      placeholder: |
+        - Related issues: #123
+        - Possible workaround: Using Chrome instead of Firefox works
+        - First noticed after: Recent deployment to testnet
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      description: Please confirm the following before submitting.
+      options:
+        - label: I have searched existing issues to ensure this bug hasn't been reported
+          required: true
+        - label: I have provided clear steps to reproduce the bug
+          required: true
+        - label: I have included relevant error messages or logs
+          required: false
+        - label: This is not a security vulnerability (which should be reported via security@deadw3.org)
+          required: true
